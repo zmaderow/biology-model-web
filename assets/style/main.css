@@ -5,19 +5,30 @@
     font-family: 'Montserrat', sans-serif;
     transition: 0.3s;
     scroll-behavior: smooth;
+    margin: 0;
+    overflow-x: hidden;
 }
 
 :root {
-    --primaryColor: rgb(0, 128, 0)
+    --green: rgb(0, 128, 0);
+    --black: rgb(26, 21, 21);
+    --white: rgb(248, 245, 239);
 }
 
 body {
     box-sizing: border-box;
+    background-color: var(--white);
+    margin: 1rem;
 }
 
 a {
     text-decoration: none;
-    color: black;
+}
+
+p,
+h1,
+a {
+    color: var(--black);
 }
 
 header {
@@ -27,6 +38,7 @@ header {
     align-items: center;
     justify-content: space-between;
     margin: 0 3rem;
+    text-align: center;
 }
 
 header ul {
@@ -42,7 +54,7 @@ header ul li {
 }
 
 header ul li a:hover {
-    color: var(--primaryColor);
+    color: var(--green);
 }
 
 header ul li a::after {
@@ -53,7 +65,7 @@ header ul li a::after {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: var(--primaryColor);
+    background-color: var(--green);
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 }
@@ -70,10 +82,26 @@ section {
 
 .sectionContent {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-self: center;
     align-items: center;
     margin: 3rem 4rem;
+    text-align: center;
+}
+
+.sectionContent>h1 {
+    font-size: 3rem;
+}
+
+#cell-para {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 1.2rem
+}
+
+.sectionContent>p {
+    margin: 0 auto;
+    font-size: 1.2rem
 }
 
 .sectionTitle {
@@ -81,23 +109,44 @@ section {
     text-align: center;
 }
 
+#model {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#sectionTwo>h1 {
+    font-size: 2.4rem;
+}
+
+#floating {
+    animation: float 6s ease-in-out infinite;
+}
+
 #structureInfo {
     height: 100%;
-    background-color: var(--primaryColor);
+    background-color: var(--green);
     padding: 1rem;
     border-radius: 15px;
     color: white;
 }
 
-/*------------------- Timeline -------------------*/
+#cellSection {
+    padding: 9rem;
+
+}
+
+
+
 .timeline {
     width: 99vw;
     max-width: 800px;
-    background: #fff;
+    background: inherit;
     padding: 50px 100px;
     position: relative;
-    box-shadow: 0.5rem 0.5rem 2rem 0 rgba(black, 0.2);
-    height: fit-content;
+    left: 2%;
+    box-shadow: 0.5rem 0.5rem 2rem 0 rgba(var(--black), 0.2);
 }
 
 .timeline::before {
@@ -139,7 +188,7 @@ section {
     position: absolute;
     width: 10px;
     height: 10px;
-    border: 6px solid var(--primaryColor);
+    border: 6px solid var(--green);
     background-color: white;
     border-radius: 100%;
     top: 5%;
@@ -168,7 +217,7 @@ section {
     line-height: 1.4em;
 }
 
-.timelineContent p::first-child {
+.timelineContent p:first-child {
     margin-top: 0;
     font-weight: 400;
 }
@@ -184,4 +233,239 @@ section {
     margin-right: .5em;
 }
 
-/*------------------- -------------------*/
+#final {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#final>p {
+    text-align: center;
+    align-self: center;
+    width: 50vw;
+    font-size: 1.3rem;
+    margin-bottom: 15vh;
+}
+
+.images {
+    display: flex;
+    justify-content: space-around;
+}
+
+.images>img {
+    object-fit: cover;
+    height: 15vw;
+}
+
+/* #imgOne {
+    animation: float 7s ease-in-out infinite;
+    height: calc(15vw + 2rem);
+    width: 15vw;
+}
+
+#imgTwo {
+    animation: float 9s ease-in-out infinite;
+}
+
+#imgThree {
+    animation: float 5s ease-in-out infinite;
+}
+
+#imgFour {
+    animation: float 6s ease-in-out infinite;
+} */
+
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+
+    50% {
+        transform: translatey(-20px);
+    }
+
+    100% {
+        transform: translatey(0px);
+    }
+}
+
+
+/*Responsividade tablets*/
+@media screen and (min-width: 600px) and (max-width: 995px) {
+    #model {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #cellSection {
+        padding: 0;
+    }
+
+    .images {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .timelineContent {
+        width: 40%;
+    }
+
+    #floating {
+        width: 80%;
+    }
+
+    #three {
+        width: fit-content;
+        margin: 0;
+    }
+
+    .timeline {
+        width: 90vw;
+        left: -7rem;
+    }
+
+    .entry .title {
+        padding-right: 35px;
+    }
+
+    .entry .title::before {
+        right: 11px;
+
+    }
+
+    .images img {
+        width: 65%;
+        height: fit-content;
+    }
+
+    #start {
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    #start h1,
+    #start p {
+        width: 100%;
+    }
+
+    header h1 {
+        display: none;
+    }
+
+    header {
+        margin: 2rem auto;
+    }
+
+    p {
+        width: 100%;
+    }
+
+    nav ul {
+        padding: 0;
+        gap: 1rem;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    .sectionContent {
+        padding: 2rem;
+        margin: 0;
+    }
+}
+
+/*Responsividade celulares*/
+@media screen and (min-width: 0) and (max-width: 599px) {
+    #model {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #cellSection {
+        padding: 0;
+    }
+
+    .images {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .timelineContent {
+        width: 40%;
+    }
+
+    #floating {
+        width: 80%;
+    }
+
+    #three {
+        width: fit-content;
+        margin: 0;
+    }
+
+    .timeline {
+        width: 90vw;
+        left: -7rem;
+    }
+
+    .entry .title {
+        padding-right: 35px;
+    }
+
+    .entry .title::before {
+        right: 11px;
+
+    }
+
+    .images img {
+        width: 65%;
+        height: fit-content;
+    }
+
+    #start {
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    #start h1,
+    #start p {
+        width: 100%;
+    }
+
+    header h1 {
+        display: none;
+    }
+
+    header {
+        margin: 2rem auto;
+    }
+
+    p {
+        width: 100%;
+    }
+
+    nav ul {
+        padding: 0;
+        gap: 1rem;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    .sectionContent {
+        padding: 2rem;
+        margin: 0;
+    }
+}

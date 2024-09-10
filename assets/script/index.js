@@ -49,3 +49,5 @@
 
 
 });
+
+ScrollReveal({reset: false})
